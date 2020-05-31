@@ -1,10 +1,10 @@
 package dados;
 
 public class Vetor {
-	private ListaSimples [] vertices;
+	private ListaDupla [] vertices;
 	
 	public Vetor (int tamanho) {
-		this.vertices = new ListaSimples[tamanho];
+		this.vertices = new ListaDupla[tamanho];
 	}
 
 }

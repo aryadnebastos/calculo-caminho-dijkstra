@@ -2,18 +2,18 @@ package dados;
 
 public class chave {
 	
-	private int key;
+	private int chave;
 
 	public chave(int key) {
-		this.key = key;
+		this.chave = key;
 	}
 
-	public int getKey() {
-		return key;
+	public int getChave() {
+		return chave;
 	}
 
-	public void setKey(int key) {
-		this.key = key;
+	public void setChave(int key) {
+		this.chave = key;
 	}
 	
 	

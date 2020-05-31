@@ -2,12 +2,15 @@ package dados;
 
 public class No {
 	private Item info;
-	private No next;
+	private No proximo;
+	private No anterior;
 	
 	
-	public No(Item info, No next) {
-		this.info = info;
-		this.next = next;
+	public No(Item elem) {
+		
+		this.info = elem;
+		this.proximo = null;
+		this.anterior = null;
 	}
 
 
@@ -21,16 +24,31 @@ public class No {
 	}
 
 
-	public No getNext() {
-		return next;
+	public No getProximo() {
+		return proximo;
 	}
 
 
-	public void setNext(No next) {
-		this.next = next;
+	public void setProximo(No proximo) {
+		this.proximo = proximo;
+	}
+
+
+	public No getAnterior() {
+		return anterior;
+	}
+
+
+	public void setAnterior(No anterior) {
+		this.anterior = anterior;
 	}
 	
 	
+	
+	
+	
+	
+
 	
 	
 }
