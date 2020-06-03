@@ -1,5 +1,11 @@
 package dados;
 
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+import java.io.*;
+
 public class MainDrunks {
 
 
@@ -9,14 +15,14 @@ public class MainDrunks {
 		
 		do {
 			
-			switch(menu){
-			
 			System.out.println("----MENU----\n"
 					+ "1- Adicionar dado\n"
 					+ "2- Modificar dados\n"
 					+ "3- Imprimir dados \n"
 					+ "4- Excluir dados\n"
 					+ "0- sair \n\n");
+			
+			switch (menu) {
 			
 			case 1:
 				InsertData();
@@ -46,11 +52,39 @@ public class MainDrunks {
 		
 		try {
 			
+			
+			
 		}catch(Exception erro3){
 			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
 		}
 
 		
+	}
+	
+	static void ModifyData() {
+		try {
+			
+			
+		}catch(Exception erro3){
+			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	static void PrintData() {
+		try {
+			
+			
+		}catch(Exception erro3){
+			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	static void DeleteData() {
+		try {
+			
+		}catch(Exception erro3){
+			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 }

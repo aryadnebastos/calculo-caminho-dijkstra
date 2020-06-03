@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-import dados.ListaDupla;
-
 import java.io.*;
 
+import dados.ListaDupla;
+
 public class MainDrunks {
+	
+	static Scanner entrada = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		
@@ -16,14 +18,17 @@ public class MainDrunks {
 		
 		do {
 			
-			switch(menu){
-			
 			System.out.println("----MENU----\n"
 					+ "1- Adicionar dado\n"
 					+ "2- Modificar dados\n"
 					+ "3- Imprimir dados \n"
 					+ "4- Excluir dados\n"
 					+ "0- sair \n\n");
+			
+			menu = entrada.nextInt();
+			
+			switch (menu) {
+			
 			
 			case 1:
 				InsertData();
@@ -42,7 +47,7 @@ public class MainDrunks {
 			}
 			
 			
-		}while(menu =!0);
+		}while(menu != 0);
 		
 
 	}
@@ -53,11 +58,39 @@ public class MainDrunks {
 		
 		try {
 			
+			
+			
 		}catch(Exception erro3){
 			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
 		}
 
 		
+	}
+	
+	static void ModifyData() {
+		try {
+			
+			
+		}catch(Exception erro3){
+			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	static void PrintData() {
+		try {
+			
+			
+		}catch(Exception erro3){
+			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	static void DeleteData() {
+		try {
+			
+		}catch(Exception erro3){
+			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 }
