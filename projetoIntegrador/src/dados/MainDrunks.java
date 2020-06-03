@@ -1,14 +1,7 @@
-package projetoIntegrador;
-
-import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-
-import dados.ListaDupla;
-
-import java.io.*;
+package dados;
 
 public class MainDrunks {
+
 
 	public static void main(String[] args) {
 		
