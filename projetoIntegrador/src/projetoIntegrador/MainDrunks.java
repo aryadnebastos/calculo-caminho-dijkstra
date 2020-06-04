@@ -17,6 +17,9 @@ public class MainDrunks {
 	public static void main(String[] args) {
 		
 		int menu;
+		int quantidade;
+		
+
 		
 		do {
 			
@@ -54,8 +57,21 @@ public class MainDrunks {
 
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	static void SearchData() {
 		//pesquisa usada no delete, modify, print
+		int quantidade = 8;
+		Vetor armazena = new Vetor(quantidade);
+		String busca = "";
+		
+		System.out.println("Qual o ponto a ser buscado?");
+		busca = entrada.next();
+		
+		for (int i = 0; i < armazena.getVertices().length ; i++) {
+			
+		armazena.getVertices()
+			
+		}
 	}
 	
 	static void ReadFile() {

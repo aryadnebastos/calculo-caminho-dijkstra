@@ -7,4 +7,19 @@ public class Vetor {
 		this.vertices = new ListaSimples[tamanho];
 	}
 
+	public Vetor(ListaSimples[] vertices) {
+		this.vertices = vertices;
+	}
+
+	public ListaSimples[] getVertices() {
+		return vertices;
+	}
+
+	public void setVertices(ListaSimples[] vertices) {
+		this.vertices = vertices;
+	}
+	
+	
+	
+
 }
