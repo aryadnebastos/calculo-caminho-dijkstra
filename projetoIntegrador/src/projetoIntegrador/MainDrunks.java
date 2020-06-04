@@ -1,17 +1,19 @@
 package projetoIntegrador;
 
 import java.util.Scanner;
-
+import dados.Vetor;
 import javax.swing.JOptionPane;
-
 import java.io.*;
+import dados.ListaSimples;
 
-import dados.ListaDupla;
+
 
 public class MainDrunks {
 	
 	static Scanner entrada = new Scanner(System.in);
-
+	static StringBuffer memoria = new StringBuffer();
+	
+	
 	public static void main(String[] args) {
 		
 		int menu;
@@ -52,25 +54,43 @@ public class MainDrunks {
 
 	}
 	
+	static void SearchData() {
+		//pesquisa usada no delete, modify, print
+	}
+	
+	static void ReadFile() {
+		//ler o arquivo txt
+	}
+	
+	static void FileToList() {
+		//inserir cada linha do arquivo em uma lista
+	}
+	
+	static void ListToVector() {
+		//inserir as listas em um vetor
+	}
+
+	
 	static void InsertData() {
-		int total=10;
-		ListaDupla dados[] = new ListaDupla[total];
-		
+
 		try {
-			
-			
-			
+			//ler o arquivo txt
+			ReadFile(); 
+			//inserir cada linha do arquivo em uma lista
+			FileToList();
+			//inserir as listas em um vetor
+			ListToVector();
+					
 		}catch(Exception erro3){
 			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
 		}
-
-		
 	}
 	
 	static void ModifyData() {
 		try {
+			//codigo aqui
 			
-			
+				
 		}catch(Exception erro3){
 			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
 		}
@@ -78,7 +98,7 @@ public class MainDrunks {
 	
 	static void PrintData() {
 		try {
-			
+			//codigo aqui
 			
 		}catch(Exception erro3){
 			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
@@ -87,6 +107,7 @@ public class MainDrunks {
 	
 	static void DeleteData() {
 		try {
+			//codigo aqui
 			
 		}catch(Exception erro3){
 			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
