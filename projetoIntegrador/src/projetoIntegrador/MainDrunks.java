@@ -2,10 +2,11 @@ package projetoIntegrador;
 
 import java.util.Scanner;
 import dados.Vetor;
+
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import java.io.*;
 import dados.ListaSimples;
-
 
 
 public class MainDrunks {
@@ -38,11 +39,9 @@ public class MainDrunks {
 			case 1:
 				InsertData();
 			case 2:
-				ModifyData();
+				SearchData();
 			case 3:
 				PrintData();
-			case 4:
-				DeleteData();
 			case 0:
 				System.out.println("FIM");
 				break;
@@ -69,13 +68,23 @@ public class MainDrunks {
 		
 		for (int i = 0; i < armazena.getVertices().length ; i++) {
 			
-		armazena.getVertices()
+		armazena.getVertices();
 			
 		}
 	}
 	
-	static void ReadFile() {
-		//ler o arquivo txt
+	public static String ReadFile() {
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		int result = fileChooser.showOpenDialog(null);
+		if(result ==JFileChooser.CANCEL_OPTION)
+			return null;
+		File arquivo = fileChooser.getSelectedFile();
+		if(arquivo == null || arquivo.getName().equals(""))
+			JOptionPane.showMessageDialog(null, "Nome de arquivo inválido");
+		else
+			return arquivo.getPath();
+		return null;
 	}
 	
 	static void FileToList() {
@@ -121,13 +130,6 @@ public class MainDrunks {
 		}
 	}
 	
-	static void DeleteData() {
-		try {
-			//codigo aqui
-			
-		}catch(Exception erro3){
-			JOptionPane.showMessageDialog(null, "Erro de gravação!",null, JOptionPane.ERROR_MESSAGE);
-		}
-	}
+
 
 }
