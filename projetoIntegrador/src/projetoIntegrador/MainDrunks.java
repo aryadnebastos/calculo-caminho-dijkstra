@@ -23,10 +23,7 @@ public class MainDrunks {
 	public static void main(String[] args) throws IOException {
 		int menu;
 		
-		Path path = ReadFile();
-		
-		List<String> list = Files.readAllLines(path, StandardCharsets.UTF_8);
-		String[] a = list.toArray(new String[list.size()]); 
+
 
 		do {
 			menu = Integer.parseInt(JOptionPane.showInputDialog("Digite o que deseja fazer :"
@@ -35,6 +32,11 @@ public class MainDrunks {
 			
 			switch(menu){
 	        case 1 :
+	    		Path path = ReadFile();
+	    		
+	    		List<String> list = Files.readAllLines(path, StandardCharsets.UTF_8);
+	    		String[] a = list.toArray(new String[list.size()]); 
+	    		
 	    		InsertData(a);
 	        break;
 
