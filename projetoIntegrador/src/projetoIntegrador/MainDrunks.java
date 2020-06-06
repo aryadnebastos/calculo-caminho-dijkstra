@@ -22,12 +22,10 @@ public class MainDrunks {
 
 	public static void main(String[] args) throws IOException {
 		int menu;
-		
-
 
 		do {
 			menu = Integer.parseInt(JOptionPane.showInputDialog("Digite o que deseja fazer :"
-	                + "\n1 - Inserir Dados"
+	                + "\n1 - Ler Arquivo txt"
 	                + "\n0 - Sair"));
 			
 			switch(menu){
@@ -38,17 +36,17 @@ public class MainDrunks {
 	    		String[] a = list.toArray(new String[list.size()]); 
 	    		
 	    		InsertData(a);
+	    		JOptionPane.showMessageDialog(null, "Inserido com sucesso! Veja o resultado no Console.");
+	    		
 	        break;
 
 	        case 0:
-	        	JOptionPane.showInputDialog("FIM DA EXECUÇÃO");
+	        	JOptionPane.showMessageDialog(null,"FIM DA EXECUÇÃO");
 	        break;
 			}
 			
 		}while(menu != 0);
 		
-		
-
 	}
 
 	public static Path ReadFile() {
@@ -82,6 +80,7 @@ public class MainDrunks {
 
 					AddOnList(lista, pontoA, pontoB, distancia);
 				}
+				System.out.println(lista.toString());
 				projeto.add(lista);
 			}
 		} catch (Exception erro3) {
