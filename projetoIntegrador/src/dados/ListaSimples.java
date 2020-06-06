@@ -24,8 +24,8 @@ public class ListaSimples {
 		return this.ult;
 	}
 
-	public void setQuantNos(int novoValor) {
-		this.quantNos = novoValor;
+	public void setQuantNos() {
+		this.quantNos = quantNos++;
 	}
 
 	public void setPrim(No novoNo) {
@@ -43,7 +43,7 @@ public class ListaSimples {
 	// insere um novo nó no final da lista ou se a lista estiver vazia, insere o
 	// primeiro nó na lista
 	public void inserirUltimo(Item elem) {
-		No novoNo = new No(elem);
+		No novoNo = new No(elem, null);
 		if (this.eVazia()) {
 			this.prim = novoNo;
 		} else {
@@ -54,56 +54,24 @@ public class ListaSimples {
 	}
 
 	// retorna o endereço do nó que está contendo o valor a ser procurado.
-	public No pesquisarNo(int chave) {
+	public No pesquisarNo( char busca) {
 		No atual = this.prim;
-		while ((atual != null) && (atual.getInfo().getChave() != chave)) {
+		while ((atual != null) && (atual.getInfo().getChegada() != busca)) {
 			atual = atual.getProximo();
 		}
 		return atual;
 	}
 
 
-
-	//  remover determinado Nó
-	public boolean removerNó(int x) {
-		if (this.eVazia()) {
-			return false;
-		} else {
-			if (this.prim.getInfo().getChave() == x) {
-				if (this.prim.getProximo() == null) {// se for único nó da lista
-					this.ult = null;
-				}
-				// remover o primeiro nó da lista
-				this.prim = this.prim.getProximo();
-			} else {
-				No atual = this.prim;
-				while ((atual.getProximo() != null) && (atual.getProximo().getInfo().getChave() != x)) {
-					atual = atual.getProximo();
-				}
-				if (atual.getProximo() == null) {// não achou o valor na lista
-					return false;
-				} else {
-					if (atual.getProximo() == this.ult) {// se for o último nó
-						atual.setProximo(null);
-						this.ult = atual;
-					} else { // remove o nó no meio da lista
-						atual.setProximo(atual.getProximo().getProximo());
-					}
-				}
-			}
-			this.quantNos--;
-			return true;
-
-		}
-	}
-
 	// mostra todo o conteúdo da lista
 	public String toString() {
 		String msg = "";
 		No atual = this.prim;
+		int contador = 1;
 		while (atual != null) {
-			msg += atual.getInfo().getChave() + "\n";
+			msg +=  contador+ "- DE: " + atual.getInfo().getPartida() + " PARA: " + atual.getInfo().getChegada() + " DISTANCIA: " + atual.getInfo().getQuilometro() + "\n"  ;
 			atual = atual.getProximo();
+			contador++;
 		}
 		return msg;
 	}
