@@ -1,6 +1,7 @@
 package projetoIntegrador;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,11 +13,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import dados.*;
+import dijkstra.*;
 
 public class MainDrunks {
 
 	static Scanner entrada = new Scanner(System.in);
 	static StringBuffer memoria = new StringBuffer();
+	static ArrayList<ListaSimples> rotasLista = null;
 
 	static int tamanhoVet = 6;
 
@@ -26,6 +29,7 @@ public class MainDrunks {
 		do {
 			menu = Integer.parseInt(JOptionPane.showInputDialog("Digite o que deseja fazer :"
 	                + "\n1 - Ler Arquivo txt"
+					+ "\n2 - Calcular Menor Rota"
 	                + "\n0 - Sair"));
 			
 			switch(menu){
@@ -35,9 +39,15 @@ public class MainDrunks {
 	    		List<String> list = Files.readAllLines(path, StandardCharsets.UTF_8);
 	    		String[] a = list.toArray(new String[list.size()]); 
 	    		
-	    		InsertData(a);
+	    		rotasLista = InsertData(a);
 	    		JOptionPane.showMessageDialog(null, "Inserido com sucesso! Veja o resultado no Console.");
 	    		
+	        break;
+	        
+	        case 2:
+	        	
+	        	CalculatePath();
+	        	JOptionPane.showMessageDialog(null,"Rota Calculada");
 	        break;
 
 	        case 0:
@@ -63,11 +73,9 @@ public class MainDrunks {
 		return null;
 	}
 
-	static void InsertData(String[] arquivo) {
-
+	static ArrayList<ListaSimples> InsertData(String[] arquivo) {
+		ArrayList<ListaSimples> projeto = new ArrayList<ListaSimples>();
 		try {
-			ArrayList<ListaSimples> projeto = new ArrayList<ListaSimples>();
-
 			for (int i = 0; i < arquivo.length; i++) {
 				ListaSimples lista = new ListaSimples();
 				String[] informacoes = arquivo[i].split(";");
@@ -83,14 +91,69 @@ public class MainDrunks {
 				System.out.println(lista.toString());
 				projeto.add(lista);
 			}
+			
+			return projeto;
+			
 		} catch (Exception erro3) {
 			JOptionPane.showMessageDialog(null, "Erro de gravação!", null, JOptionPane.ERROR_MESSAGE);
 		}
+		return projeto;
 	}
 
 	public static void AddOnList(ListaSimples lista, char pontoA, char pontoB, double valor) {
 		Item informacao = new Item(pontoA, pontoB, valor);
 		lista.inserirUltimo(informacao);
+	}
+	
+	public static void CalculatePath() {
+
+        Dijkstra dijkstra = new Dijkstra();
+
+        
+        ListaSimples[] arrayDeLista = rotasLista.toArray(new ListaSimples[rotasLista.size()]);
+        
+        Vertex v1 = null;
+        
+	    Vertex v2 = null;
+
+		for (int i = 0; i < arrayDeLista.length; i++) {
+			
+			No atual = arrayDeLista[i].getPrim();
+			
+			int contador = 1;
+			
+		    v1 = new Vertex(atual.getInfo().getPartida() + "");
+		    
+		    char vertexAux = 0;
+		    
+		   
+			
+			while (atual != null) {
+				
+				char chegada =  atual.getInfo().getChegada();
+				
+				if (vertexAux != chegada) {
+					vertexAux = chegada;
+					
+				    v2 = new Vertex(chegada + "");
+				    
+				    v1.addAdjacente(new Edge(atual.getInfo().getQuilometro(), v1, v2));
+				} else { 
+				    v1.addAdjacente(new Edge(atual.getInfo().getQuilometro(), v1, v2));
+				}
+
+				//msg +=  contador+ "- DE: " + atual.getInfo().getPartida() + " PARA: " + atual.getInfo().getChegada() + " DISTANCIA: " + atual.getInfo().getQuilometro() + "\n"  ;
+				atual = atual.getProximo();
+				contador++;
+			}
+		
+	        dijkstra.calcularRota(v1);
+			
+			System.out.println(dijkstra.getShortestPathTo(v2));
+		}
+		
+
+	
 	}
 	
 
