@@ -50,7 +50,7 @@ public class MainDrunks {
 			case 2:
 
 				calcularRota();
-				JOptionPane.showMessageDialog(null, "Rota Calculada");
+				JOptionPane.showMessageDialog(null, "Você pode calcular outra rota ou sair do sistema.");
 				break;
 
 			case 0:
@@ -161,7 +161,7 @@ public class MainDrunks {
 				.showInputDialog("Escolha o destino:" + "\nB" + "\nC" + "\nD" + "\nE" + "\nF" + "\nG" + "\nH").charAt(0);
 		rota = Character.toUpperCase(rota);
 		
-		JOptionPane.showMessageDialog(null,"A menor rota para este ponto é: " + dijkstra.getMenorRotaPara(map.get(rota + "")));
+		JOptionPane.showMessageDialog(null,"A menor rota para o ponto "+ rota +" é: " + dijkstra.getMenorRotaPara(map.get(rota + "")));
 
 	}
 
